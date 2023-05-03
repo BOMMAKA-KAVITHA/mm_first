@@ -4,20 +4,24 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
 
 
 
 @Entity
-@Data
+@Setter
+@Getter
+@ToString
 public class SUBSCRIPTION_TABLE {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int CustomerId;
-	private String SubscriptionService;
-	private String ServiceDescription;
-	private int ServicePrice;
-	private String RenewalDuration;
-	private String SubscriptionStatus;
-
+	private Long customerid;
+	private String subscriptionservice;
+	private String servicedescription;
+	private int serviceprice;
+	private String renewalduration;
+	private String subscriptionstatus;
+	
 }

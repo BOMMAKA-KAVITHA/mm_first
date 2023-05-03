@@ -8,11 +8,12 @@ public interface SubscriptionServiceInterface {
 
 	public String createProfileService(SUBSCRIPTION_TABLE su);
 
-	public List<SUBSCRIPTION_TABLE> getAllUsers();
+	public List<SUBSCRIPTION_TABLE> getAllProfileService();
 
-	public SUBSCRIPTION_TABLE getProfileService(int uid);
+	public SUBSCRIPTION_TABLE getProfileService(Long uid);
 
-	public String updateProfileService(SUBSCRIPTION_TABLE su);
+	public String deleteProfileService(Long uid);
 
-	public String deleteProfileService(int uid);
+	public String editProfileService(SUBSCRIPTION_TABLE iu);
+
 }

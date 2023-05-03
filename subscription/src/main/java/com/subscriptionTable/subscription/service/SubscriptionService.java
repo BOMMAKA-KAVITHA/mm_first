@@ -28,29 +28,30 @@ public class SubscriptionService implements SubscriptionServiceInterface{
 	}
 
 	@Override
-	public List<SUBSCRIPTION_TABLE> getAllUsers() {
+	public List<SUBSCRIPTION_TABLE> getAllProfileService() {
 		return sd.findAll();
 	}
 
 	@Override
-	public SUBSCRIPTION_TABLE getProfileService(int uid) {
-		SUBSCRIPTION_TABLE a=null;
-		Optional<SUBSCRIPTION_TABLE> oo=sd.findById(uid);
+	public SUBSCRIPTION_TABLE getProfileService(Long uid) {
+		SUBSCRIPTION_TABLE ss= null;
+		Optional<SUBSCRIPTION_TABLE>oo = sd.findById(uid);
 		if(oo.isPresent()) {
-		a=oo.get();
-	}
-		return a;
-	}
-
-	@Override
-	public String updateProfileService(SUBSCRIPTION_TABLE su) {
-		sd.saveAndFlush(su);
-		return "profile updated";
+			ss=oo.get();
+			}
+		return ss;
 	}
 
 	@Override
-	public String deleteProfileService(int uid) {
+	public String deleteProfileService(Long uid) {
 		sd.deleteById(uid);
-		return "Profile deleted";
+		return "Profile deleted !";
 	}
+
+	@Override
+	public String editProfileService(SUBSCRIPTION_TABLE iu) {
+		sd.saveAndFlush(iu);
+		return "profile edited !";
+	}
+
 	}

@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 
@@ -26,26 +25,21 @@ public class SubscriptionController {
 	public String createProfile(@RequestBody SUBSCRIPTION_TABLE su) {
 		return ss.createProfileService(su);
 	}
-	
-	@GetMapping("/viewAllSubscriptions")
+	@GetMapping("viewAllSubscriptions")
 	public List<SUBSCRIPTION_TABLE> viewAll(){
-		return ss.getAllUsers();
+		return ss.getAllProfileService();
 	}
-	
-	@GetMapping("/viewSubscription/{id}")
-	public SUBSCRIPTION_TABLE viewProfile(@PathVariable("id") int uid) {
+	@GetMapping("viewSubscription/{id}")
+	public SUBSCRIPTION_TABLE viewProfile(@PathVariable("id")Long uid){
 		return ss.getProfileService(uid);
 	}
-	@PutMapping("/updateSubscription/{id}")
-	public String updateProfile(@PathVariable("id")int uid,@RequestBody SUBSCRIPTION_TABLE su) {
-		return ss.updateProfileService(su);
-	}
-	
-	@DeleteMapping("/deleteSubscription/{id}")
-
-	public String deleteProfile(@PathVariable("id")int uid){
+	@DeleteMapping("deleteSubscription/{id}")
+	public String deleteProfile(@PathVariable("id")Long uid){
 		return ss.deleteProfileService(uid);
-
+	}
+	@PutMapping("editSubscription/{id}")
+	public String editProfile(@PathVariable("id")Long uid,@RequestBody SUBSCRIPTION_TABLE iu){
+		return ss.editProfileService(iu);
 	}
 	
 
